@@ -18,9 +18,7 @@ router.post('/', (req, res) => {
 });
 
 router.get('/:id', (req, res)=> {
-    const { id } = req.params;
-    const proyect = proyectController.getProyectById(id);
-    console.log(proyect);
+    const proyect = proyectController.getProyectById(req.params.id);
     if(proyect)
         res.status(200).json(proyect);
     else

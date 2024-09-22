@@ -7,7 +7,7 @@ let proyects = [
         name: "Nuevo Sistema de Gestion",
         description: "Implementar un sistema de recursos",
         startDate: "2024-09-01",
-        endDate: "2025-02-01"   ,
+        endDate: "2025-02-01",
         status: "ongoing",
         teamMembers: ["Jaime Torres", "Aldo Amaral", "Karina Macedo"],
         budget: 10000
@@ -53,20 +53,19 @@ function createProyect(name, description, startDate, endDate, status, teamMember
 }
 
 function getProyectById(id) {
-    const proyectFound = proyects.find((proyect) => {
-        proyect.id === id;
-    });
-    return proyectFound;
+    return proyects.find(proyect => proyect.id === id);
 }
 
 function updateProyect(proyectToUpdated) {
-    proyects = proyects.map((p) => (p.id === proyectToUpdated.id ? proyectToUpdated : p));
+    proyectToUpdatedIndex = proyects.findIndex(proyect => proyect.id === proyectToUpdated.id);
+    proyects.splice(proyectToUpdatedIndex, 1, proyectToUpdated);
     return proyectToUpdated;
 }
 
 function deleteProyect(id) {
-    proyects = proyects.filter(proyect => proyect.id !== id);
-    return proyects;
+    const eliminatedProyect = proyects.find(proyect => proyect.id === id);
+    proyects.splice(proyects.findIndex(proyect => proyect.id === id), 1);
+    return eliminatedProyect;
 }
 
 module.exports ={
