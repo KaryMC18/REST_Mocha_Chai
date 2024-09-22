@@ -40,6 +40,7 @@ function getAllProyects() {
 
 function createProyect(name, description, startDate, endDate, status, teamMembers, budget) {
     const newProyect = {
+        id: uuidv4(),
         name,
         description,
         startDate,

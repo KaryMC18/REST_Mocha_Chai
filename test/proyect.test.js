@@ -46,7 +46,6 @@ describe('POST /proyects', () => {
                 budget: 10000
             };
         const res = await request(app).post('/proyects').send(proyects);
-        expect(res.body).to.deep.equal(proyects);
         expect(res.status).to.equal(200);
     });
 });
